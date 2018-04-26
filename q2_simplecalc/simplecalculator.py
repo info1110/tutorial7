@@ -24,7 +24,7 @@ def mod(a, b):
 	pass
 	
 #Try and write this operating without using the abs() function or math library.
-def abs(a:
+def abs(a):
 	pass
 	
 #This will run until q is entered
@@ -46,7 +46,9 @@ while line != 'q':
 			rsh(int(spl[1]), int(spl[2]))
 		if spl[0] == 'mod':
 			mod(int(spl[1]), int(spl[2]))
+	if len(spl) >= 2:
 		if spl[0] == 'abs':
 			abs(int(spl[1]))
+		line = input()
 	else:
 		print("Not valid operation")

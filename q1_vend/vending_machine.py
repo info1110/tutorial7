@@ -36,35 +36,35 @@ def display_items(items):
         print('[' + str(i) + ']' + ' ' + str(k))
 
 def user_select(items):
-	global quit
-	print('Select an option between 0 and ' + str(len(items)-1) + ' or press q to quit')
-	i = input()
-	item = None
-	if i != 'q':
-		i = int(i)
-		for j, k in enumerate(items):
-		    if i == j:
-		    	item = (k, items[k][0], items[k][1])
-	else:
-		quit = True
-	return item
+    global quit
+    print('Select an option between 0 and ' + str(len(items)-1) + ' or press \'q\' to quit')
+    i = input()
+    item = None
+    if i != 'q':
+        i = int(i)
+        for j, k in enumerate(items):
+            if i == j:
+                item = (k, items[k][0], items[k][1])
+    else:
+        quit = True
+    return item
 
 def checkout(item):
-    print('Insert $1, $2, $5, $10 or $20 or press c to cancel')
+    print('Insert $1, $2, $5, $10 or $20 or press \'c\' to cancel')
     cost = float(item[1])
     cancelled = False
     while cost > 0 and not cancelled:
         change = input()
         if change != 'c':
-        	change = int(change)
-        	if check_change_is_valid(change):
-        		cost -= change
+            change = int(change)
+            if check_change_is_valid(change):
+                cost -= change
         else:
-        	cancelled = True
+            cancelled = True
     if not cancelled:
-    	print("Item has been paid for, Thank you!")
+        print("Item has been paid for, Thank you!")
     else:
-    	print('Your order has been cancelled')
+        print('Your order has been cancelled')
 
 def check_change_is_valid(change):
     valid_change = [1, 2, 5, 10, 20]
@@ -80,4 +80,4 @@ while not quit:
     display_items(items)
     item = user_select(items)
     if not quit and (item is not None):
-    	checkout(item)
+        checkout(item)

@@ -6,14 +6,15 @@ def load_dvds(filename):
 	with open(filename, 'r') as f:
 		for l in f:
 			spl = l.split(',')
-			dvds.append([spl[0], int(spl[1]]))
+			if len(spl) > 1:
+				dvds.append([spl[0], int(spl[1])])
 	return dvds
 
 def show_dvds(dvds):
 	""" This will show all the dvds """
 	for i, d in enumerate(dvds):
-		print("[{0}] {1}".format(i, d[0])
-		
+		print("[{0}] {1}".format(i, d[0])) 
+
 def select_dvd(dvds):
 	""" Will allow the user to select a dvd """
 	global quit
@@ -30,8 +31,9 @@ def select_dvd(dvds):
 def pay_for_dvd(dvd):
 	""" Pay for the DVD, ask for input check if it is over $3.00 """
 	p = float(input("Please pay to rent this item: "))
-	if p >= 3.00
-		dvds[idx][1] -= 1 #We drop the quantity by 1, if 0 should not be rentable
+	print(dvd)
+	if p >= 3.00:
+		dvd[1] = dvd[1] - 1 #We drop the quantity by 1, if 0 should not be rentable
 	
 
 
